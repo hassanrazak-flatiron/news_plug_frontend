@@ -1,22 +1,27 @@
+import Landing from "./Landing";
+// import Home from "./Home";
+
 import {useState, useEffect} from 'react'
 
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [headlines, setHeadLines] = useState([]);
 
   useEffect(() => {
-    fetch("/hello")
+    fetch("/headlines")
       .then((r) => r.json())
       .then((data) => {
         console.log(data)
-        setCount(data.count);
+        setHeadLines(data);
       })
   }, []);
 
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
+ <>
+          <Landing headlines = {headlines}/>
+          {/* <Home /> */}
+
+ </>
   );
  
 }
