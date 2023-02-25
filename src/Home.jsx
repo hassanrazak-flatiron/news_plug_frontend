@@ -5,13 +5,15 @@ import SearchResults from "./SearchResults";
 import Footer from "./Footer";
 
 
-const Home = () => {
+const Home = ({headlines}) => {
+
+
     return (    
         <>
         <>Will contain NavBar, Search Bar, top headlines cards, search results, and footer  </>
         <NavBar />
         <SearchBar />
-        <TopHeadlines />
+        <TopHeadlines headlines={headlines}/>
         <SearchResults />
         <Footer />
 
