@@ -10,7 +10,6 @@ const Home = ({headlines}) => {
 
     return (    
         <>
-        <>Will contain NavBar, Search Bar, top headlines cards, search results, and footer  </>
         <NavBar />
         <SearchBar />
         <TopHeadlines headlines={headlines}/>

@@ -6,7 +6,7 @@ const TopHeadlines = ({headlines}) => {
     const top_headers = headlines.map((hl)=>{
         return(
 
-            <section className="py-16">
+<section className="py-16">
   <div className="container px-4 mx-auto">
     <div className="flex flex-wrap items-center -mx-4 mb-12">
       <div className="w-full xl:w-2/3 px-4 mb-8 xl:mb-0">
@@ -48,6 +48,7 @@ const TopHeadlines = ({headlines}) => {
     return (    
         
 <>
+<h1>Top Headlines</h1>
 {top_headers}
 
 </>
