@@ -1,12 +1,10 @@
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 
-const SignUp = () => {
+const SignUp = ({email,password,setEmail, setPassword}) => {
 
     const [firstName,setFirstName] = useState('')
     const [lastName,setLastName] = useState('')
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
     const [passwordConfirmation,setPasswordConfirmation] = useState('')
 
     const navigate = useNavigate()

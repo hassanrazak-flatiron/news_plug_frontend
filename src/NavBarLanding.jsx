@@ -1,3 +1,4 @@
+import {Link, useNavigate} from 'react-router-dom'
 const NavBarLanding = () => {
     return ( 
 
@@ -22,7 +23,7 @@ const NavBarLanding = () => {
           </div>
         </div>
       </div>
-      <div className="w-auto hidden lg:flex items-center"><a className="inline-block mr-12 font-heading font-medium text-base text-green-900" href="#">Log in</a><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#">Sign up</a></div>
+      <div className="w-auto hidden lg:flex items-center"><a className="inline-block mr-12 font-heading font-medium text-base text-green-900" href="#"><Link to='/login'>Log in</Link></a><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#"><Link to='/signup'>Sign up</Link></a></div>
       <div className="w-auto lg:hidden">
         <a className="navbar-burger inline-flex w-14 h-14 justify-center items-center bg-gray-50 hover:bg-gray-100 rounded-full" href="#">
           <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">

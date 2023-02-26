@@ -1,4 +1,22 @@
+import {Link,useNavigate} from 'react-router-dom'
+
 const NavBar = () => {
+
+    const navigate = useNavigate()
+    const handleLogOut = () =>{
+        fetch('/logout',{
+            method: 'DELETE',
+        }).then(r =>{
+            if (r.ok) {
+                // r.json().then((user) =>setUser(user));
+                navigate('/')
+              } else {
+                // r.json().then((err) => setErrors(err.errors));
+                
+              }
+            })
+
+    }
     return ( 
         <>
 <section>
@@ -18,7 +36,7 @@ const NavBar = () => {
             <li className="font-heading mr-12 text-gray-900"></li>
           </ul>
         </div>
-        <div className="w-auto hidden lg:block"><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#">Logout</a></div>
+        <div className="w-auto hidden lg:block"><button className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#" onClick={handleLogOut}><Link to="/">Logout</Link></button></div>
         <div className="w-auto lg:hidden">
           <a className="navbar-burger inline-flex w-14 h-14 justify-center items-center bg-gray-50 hover:bg-gray-100 rounded-full" href="#">
             <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
