@@ -1,13 +1,23 @@
 import {useState,useEffect} from 'react'
 
-const SearchBar = () => {
+const SearchBar = ({stories,setStories}) => {
 
     const[search,setSearch] = useState('')
+    
 
    const handleSearch = (e) =>{
     e.preventDefault();
-    console.log('clicked')
-   }
+    if({search} == ''){
+        
+    }else{
+
+        fetch(`/search_stories/${search}`)
+        .then(r => r.json())
+        .then(r => setStories(r))
+        console.log(stories)
+        
+    }
+    }
 
 
     return (    
@@ -19,7 +29,7 @@ const SearchBar = () => {
 <div className="mb-1">
   <label>
     <input type="radio" name="radio-name" value="option 1" checked=""/>
-    <span className="ml-1">Radio option 1</span>
+    <span className="ml-1">BBC</span>
   </label>
 </div>
 <div>
@@ -28,7 +38,7 @@ const SearchBar = () => {
     <span className="ml-1">CNN</span>
   </label>
 </div>
-</div><button className="inline-block py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 rounded-sm transition duration-200" type="submit">ENTER</button></form>
+</div><button className="inline-block py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-800 rounded-sm transition duration-200" onKeyDown={e => e.key === 'Enter' ? handleSearch : ''} type="submit">ENTER</button></form>
         </>
      );
 }

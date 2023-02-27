@@ -72,7 +72,6 @@ const SignUp = ({email,password,setEmail, setPassword}) => {
         <span>create an</span>
         <span className="text-green-500">account</span>
       </span>
-      <h4 className="max-w-xs font-heading text-3xl sm:text-4xl mt-2" contenteditable="false"></h4>
     </div>
     <form action="" onSubmit={handleSignUp}>
       <div className="mb-4">
