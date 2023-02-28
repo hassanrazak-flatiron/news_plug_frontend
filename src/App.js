@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 
 
+
 function App() {
   const[user,setUser] = useState(null)
   const [email,setEmail] = useState('')
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<SignUp email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/login" element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           </Routes>
+          
 
  </>
   );

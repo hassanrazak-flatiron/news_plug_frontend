@@ -1,12 +1,14 @@
-import Footer from "./Footer";
+
+// import Footer from "./Footer";
 import NavBarLanding from "./NavBarLanding";
-import TopHeadlines from "./TopHeadlines";
+import TopHeadlinesSwiper from "./TopHeadlinesSwiper";
 
 const Landing = ({headlines}) => {
     return ( 
         <>
         <NavBarLanding />
-        <TopHeadlines headlines = {headlines}/>
+        <TopHeadlinesSwiper headlines={headlines}/>
+        {/* <TopHeadlines headlines = {headlines}/> */}
         {/* <Footer /> */}
         </>
      );

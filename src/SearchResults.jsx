@@ -48,6 +48,10 @@ const SearchResults = ({stories}) => {
 
     return ( 
         <>
+         <div className="text-sm mb-2 font-semibold text-gray-900 uppercase">
+          <span>Broswe </span>
+          <span className="text-green-500">       SEARCH RESULTS</span>
+        </div>
         {search_stories}
         </>
      );
