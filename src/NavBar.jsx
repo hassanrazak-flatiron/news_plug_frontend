@@ -2,6 +2,10 @@ import {Link,useNavigate} from 'react-router-dom'
 
 const NavBar = () => {
 
+
+
+ 
+
     const navigate = useNavigate()
     const handleLogOut = () =>{
         fetch('/logout',{
@@ -31,7 +35,7 @@ const NavBar = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">
           <ul className="flex items-center">
             <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/home'>Home</Link></a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/myarticles'>My Articles</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#" ><Link to='/myarticles'>My Articles</Link></a></li>
             <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
             <li className="font-heading mr-12 text-gray-900"></li>
           </ul>
@@ -55,12 +59,10 @@ const NavBar = () => {
           <img src="acros-assets/logo/logo-acros-black.svg" alt=""/>
         </a>
         <ul className="w-full mb-auto pb-16">
-          <li><a className="font-heading block text-base font-medium py-4 px-6 hover:bg-green-50 rounded-sm" href="#">Home</a></li>
-          <li><a className="font-heading block text-base py-4 px-6 hover:bg-green-50 rounded-sm" href="#">About</a></li>
-          <li><a className="font-heading block text-base py-4 px-6 hover:bg-green-50 rounded-sm" href="#">Company</a></li>
-          <li><a className="font-heading block text-base py-4 px-6 hover:bg-green-50 rounded-sm" href="#">Services</a></li>
-          <li><a className="font-heading block text-base py-4 px-6 hover:bg-green-50 rounded-sm" href="#">Testimonials</a></li>
-          <li><a className="font-heading block text-base py-4 px-6 hover:bg-green-50 rounded-sm" href="#">Contact</a></li>
+        <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/home'>Home</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/myarticles'>My Articles</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"></li>
         </ul>
         <div className="w-full">
           <a className="block w-full py-4 px-4 mb-4 text-center font-heading font-medium text-base hover:text-green-500 border border-gray-900 hover:border-green-500 rounded-sm transition duration-200" href="#">Log in</a><a className="block w-full py-4 px-4 mb-8 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#">Sign up</a>
