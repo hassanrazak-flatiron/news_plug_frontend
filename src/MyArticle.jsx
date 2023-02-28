@@ -4,6 +4,7 @@ import {Swiper as SwiperComponent,SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import 'swiper/swiper-bundle.min.css';
+import TipTap from "./TipTap";
 
 
 
@@ -97,6 +98,7 @@ const MyArticle = () => {
             > 
             {displayMyArticles.map((arts)=><SwiperSlide>{arts}</SwiperSlide>)}
             </SwiperComponent>
+            <TipTap />
         </>
      );
 }
