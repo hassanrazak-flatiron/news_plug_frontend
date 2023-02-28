@@ -28,14 +28,32 @@ const SearchBar = ({stories,setStories}) => {
 </div><div className="mb-6">
 <div className="mb-1">
   <label>
-    <input type="radio" name="radio-name" value="option 1" checked=""/>
+    <input type="radio" name="radio-name" value="option 1" />
     <span className="ml-1">BBC</span>
   </label>
 </div>
 <div>
   <label>
-    <input type="radio" name="radio-name" value="option 2"/>
+    <input type="radio" name="radio-name" value="option 2" />
     <span className="ml-1">CNN</span>
+  </label>
+</div>
+<div>
+  <label>
+    <input type="radio" name="radio-name" value="option 3" />
+    <span className="ml-1">NPR</span>
+  </label>
+</div>
+<div>
+  <label>
+    <input type="radio" name="radio-name" value="option 4" />
+    <span className="ml-1">Politico</span>
+  </label>
+</div>
+<div>
+  <label>
+    <input type="radio" name="radio-name" value="option 5" />
+    <span className="ml-1">NBC</span>
   </label>
 </div>
 </div><button className="inline-block py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-800 rounded-sm transition duration-200" onKeyDown={e => e.key === 'Enter' ? handleSearch : ''} type="submit">ENTER</button></form>

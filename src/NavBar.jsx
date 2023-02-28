@@ -30,9 +30,9 @@ const NavBar = () => {
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">
           <ul className="flex items-center">
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#">Home</a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#">My Articles</a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#">Hot Takes</a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/home'>Home</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/myarticles'>My Articles</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
             <li className="font-heading mr-12 text-gray-900"></li>
           </ul>
         </div>
