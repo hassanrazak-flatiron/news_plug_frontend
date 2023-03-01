@@ -8,11 +8,11 @@ import TipTap from "./TipTap";
 
 
 
-const MyArticle = () => {
+const MyArticle = ({user}) => {
     const[myArticles, setMyArticles] = useState([])
 
     useEffect(() => {
-        fetch("/my_articles")
+        fetch("/saved_articles")
           .then((r) => r.json())
           .then((r) => {
             console.log(r)
@@ -23,22 +23,7 @@ const MyArticle = () => {
       const displayMyArticles = myArticles.map((art) => {
         return(
             <section key={art.story.id}>
-  {/* <div className="container px-4 pb-14 mx-auto">
-    <div className="flex items-center py-4">
-      <a className="inline-block text-xs font-medium uppercase hover:underline" href="#">Home</a>
-      <span className="mx-2 text-gray-300">
-        <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.33325 1.66675L3.66659 4.00008L1.33325 6.33341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </span>
-      <a className="inline-block text-xs font-medium uppercase hover:underline" href="#">Blog</a>
-      <span className="mx-2 text-gray-300">
-        <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.33325 1.66675L3.66659 4.00008L1.33325 6.33341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </span>
-      <a className="inline-block text-xs text-gray-300 font-medium uppercase" href="#">Article</a>
-    </div> */}
+
     <div className="flex flex-wrap items-center -mx-4">
       <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
         <div className="max-w-lg xl:max-w-md">
@@ -75,7 +60,6 @@ const MyArticle = () => {
       
       
     </div>
-  {/* </div> */}
 </section>
 
 )})
@@ -84,7 +68,12 @@ const MyArticle = () => {
     
         <>
         <NavBar />
-            <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">My Articles</h2>
+        {user ? 
+      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">{user?.first_name}'s Articles</h2>
+      :
+      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">My Articles</h2>
+      }
+
             <SwiperComponent
             modules={ [Navigation, Pagination, Scrollbar, A11y] }
             spaceBetween={50}

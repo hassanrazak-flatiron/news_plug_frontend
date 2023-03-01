@@ -8,7 +8,6 @@ const Landing = ({headlines}) => {
         <>
         <NavBarLanding />
         <TopHeadlinesSwiper headlines={headlines}/>
-        {/* <TopHeadlines headlines = {headlines}/> */}
         {/* <Footer /> */}
         </>
      );

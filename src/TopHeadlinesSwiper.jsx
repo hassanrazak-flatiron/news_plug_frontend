@@ -5,7 +5,7 @@ import 'swiper/swiper-bundle.min.css';
 
 
 
-const TopHeadlinesSwiper = ({headlines}) => {
+const TopHeadlinesSwiper = ({headlines, user}) => {
 
     const slides = headlines.map((hl)=>{
 
@@ -53,7 +53,11 @@ const TopHeadlinesSwiper = ({headlines}) => {
        
         return ( 
             <>
-            <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">HEADLINES</h2>
+              {user ? 
+      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">{user?.first_name}'s HEADLINES</h2>
+      :
+      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">HEADLINES</h2>
+      }
             <SwiperComponent
             modules={ [Navigation, Pagination, Scrollbar, A11y] }
             spaceBetween={50}
@@ -65,7 +69,7 @@ const TopHeadlinesSwiper = ({headlines}) => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
             > 
-            {slides.map((slide)=><SwiperSlide>{slide}</SwiperSlide>)}
+            {slides.map((slide)=><SwiperSlide key={slide.id}>{slide}</SwiperSlide>)}
             </SwiperComponent>
     
     

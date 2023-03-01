@@ -1,6 +1,6 @@
 import Landing from "./Landing";
 import Home from "./Home";
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes,useNavigate } from "react-router-dom"
 import {useState, useEffect} from 'react'
 import SignUp from "./SignUp";
 import Login from "./Login";
@@ -15,14 +15,23 @@ function App() {
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const [headlines, setHeadLines] = useState([]);
-
+  
+  const navigate = useNavigate()
+// follow up later 
   useEffect(() => {
     fetch("/me")
       .then((r) => r.json())
       .then((r) => {
         console.log(r)
-        setUser(r);
-      })
+        if(r.ok){
+          console.log(r)
+          setUser(r);
+        }
+        
+      }).then(
+
+        (navigate ('/home'))
+      )
   }, []);
 
 
@@ -43,7 +52,7 @@ function App() {
           <Route path="/home" element={<Home user={user} headlines = {headlines} />} />
           <Route path="/signup" element={<SignUp email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/login" element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
-          <Route path="/myarticles" element={<MyArticle />} />
+          <Route path="/myarticles" element={<MyArticle user={user}/>} />
           <Route path="/hottakes" element={<HotTake />} />
           </Routes>
           
