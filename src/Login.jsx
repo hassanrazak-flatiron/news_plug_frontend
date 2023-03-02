@@ -41,12 +41,12 @@ const Login = ({email, password, setEmail, setPassword}) => {
         <div className="mb-4">
           <label className="block text-sm leading-6 mb-2" for="">E-mail address</label>
           <input className="block w-full p-4 font-heading text-gray-300 placeholder-gray-300 bg-gray-50 rounded outline-none" value={email} onChange={(e)=>setEmail(e.target.value)}
-          type="email" placeholder="Type e-mail"/>
+          type="email" placeholder="hr@1.com"/>
         </div>
         <div className="mb-6">
           <label className="block text-sm leading-6 mb-2" for="">Password</label>
           <input className="block w-full p-4 font-heading text-gray-300 placeholder-gray-300 bg-gray-50 rounded outline-none" value={password} onChange={(e)=>setPassword(e.target.value)}
-          type="password" placeholder="Type password"/>
+          type="password" placeholder="123"/>
         </div>
         <div className="text-right mb-6">
           <button className="block w-full py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" type="submit">Sign in</button>

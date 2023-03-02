@@ -15,23 +15,18 @@ function App() {
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const [headlines, setHeadLines] = useState([]);
+ 
   
   const navigate = useNavigate()
-// follow up later 
-  useEffect(() => {
-    fetch("/me")
-      .then((r) => r.json())
-      .then((r) => {
-        console.log(r)
-        if(r.ok){
-          console.log(r)
-          setUser(r);
-        }
-        
-      }).then(
 
-        (navigate ('/home'))
-      )
+  useEffect(() => {
+    // auto-login
+    fetch("/me")
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
   }, []);
 
 

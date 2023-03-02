@@ -3,12 +3,12 @@ import {useState} from 'react'
 const SearchResult = ({stories, user}) => {
 
 
-const[selectedArticles,setSelectedArticles] = useState([])
+// const[selectedArticles,setSelectedArticles] = useState([])
 
 const createArticle = (id) => {
   console.log(id)
   console.log(user?.id)
-  fetch('/savedarticles',{
+  fetch('/my_articles',{
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 

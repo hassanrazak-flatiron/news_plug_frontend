@@ -9,6 +9,7 @@ import TipTap from "./TipTap";
 
 
 const MyArticle = ({user}) => {
+
     const[myArticles, setMyArticles] = useState([])
 
     useEffect(() => {
