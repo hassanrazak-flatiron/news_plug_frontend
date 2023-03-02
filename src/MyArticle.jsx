@@ -21,14 +21,16 @@ const MyArticle = ({user}) => {
           })
       }, []);
 
+      
+
       const displayMyArticles = myArticles.map((art) => {
         return(
-            <section key={art.story.id}>
+    <section  key={art.story.id}>
 
     <div className="flex flex-wrap items-center -mx-4">
       <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
         <div className="max-w-lg xl:max-w-md">
-          <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2" href={art.story.url}>#{art.story.source}</a>
+          <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2 ml-0.5" href={art.story.url}>#{art.story.source}</a>
           <h3 className="font-heading text-3xl sm:text-4xl mb-8">{art.story.title}</h3>
           <div className="flex items-center">
             <img className="w-8 h-8 rounded-full mr-3" src="acros-assets/images/blog-content/man-32x32.png" alt=""/>
@@ -89,6 +91,8 @@ const MyArticle = ({user}) => {
             {displayMyArticles.map((arts)=><SwiperSlide>{arts}</SwiperSlide>)}
             </SwiperComponent>
             <TipTap />
+            <div className="w-5/6">
+            </div>
         </>
      );
 }

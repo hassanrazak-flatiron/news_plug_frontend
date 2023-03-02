@@ -10,8 +10,8 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
     const slides = headlines.map((hl)=>{
 
         return(
-            <section className="py-16" key={hl.id}>
-            <div className="container px-4 mx-auto">
+            <section key={hl.id}>
+            <div className="container px-4 mx-auto w-3/4">
               <div className="flex flex-wrap items-center -mx-4 mb-12">
                 <div className="w-full xl:w-2/3 px-4 mb-8 xl:mb-0">
                   <div className="text-sm mb-2 font-semibold text-gray-900 uppercase">
@@ -58,7 +58,7 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
       :
       <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">HEADLINES</h2>
       }
-            <SwiperComponent
+            <SwiperComponent className='w-3/4'
             modules={ [Navigation, Pagination, Scrollbar, A11y] }
             spaceBetween={50}
             slidesPerView={2}
