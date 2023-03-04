@@ -3,6 +3,7 @@ import StarterKit from '@tiptap/starter-kit';
 import ToolBar from './ToolBar';
 import { FaImage } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
+import {useState} from "react"
 
 
 
@@ -15,6 +16,8 @@ const TipTap = () => {
     ],
     content: '<p>START TYPING</p>',
   })
+
+const[workflowNumber, setWorkFlowNumber] = useState(1)
 
   // const saveToSummaries = (e) =>{
   //   e.preventDefault()
@@ -69,14 +72,8 @@ const TipTap = () => {
             </div>
             <hr />
             <div className='inline-grid gap-2 grid-cols-2 w-full'>
-                <input placeholder="Enter categories..." className='w-full pl-2 h-10 bg-slate outline-chateau'></input>
+                <input placeholder="Enter workflow number..." className='w-full pl-2 h-10 bg-slate outline-chateau'></input>
                 {/* ref={categories}  */}
-                <input  placeholder="Enter tags..." className='w-full pl-2 h-10 bg-slate outline-chateau'></input>
-                {/* ref={tags} */}
-                <input  placeholder="Enter slug..." className='w-full pl-2 h-10 bg-slate outline-chateau'></input>
-                {/* ref={slug} */}
-                <input  placeholder="Enter image..." className='w-full pl-2 h-10 bg-slate outline-chateau'></input>
-                {/* ref={image} */}
             </div>
             
             <div className='bg-chateau flex justify-center items-center space-x-3 p-3'>

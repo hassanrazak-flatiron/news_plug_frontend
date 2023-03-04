@@ -2,6 +2,7 @@ import NavBar from "./NavBar";
 import {useState, useEffect} from 'react'
 import {Swiper as SwiperComponent,SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import {useNavigate} from 'react-router-dom'
 
 import 'swiper/swiper-bundle.min.css';
 import TipTap from "./TipTap";
@@ -11,6 +12,8 @@ import TipTap from "./TipTap";
 const MyArticle = ({user}) => {
 
     const[myArticles, setMyArticles] = useState([])
+    const[click,setIsClicked]=useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch("/saved_articles")
@@ -19,7 +22,28 @@ const MyArticle = ({user}) => {
             console.log(r)
             setMyArticles(r);
           })
-      }, []);
+      }, [click]);
+
+
+      // remove article from work flow
+
+      const removeArticle = (id) => {
+        console.log(id)
+        // e.preventDefault();
+        fetch(`/my_articles/${id}`,{
+          method:'DELETE',
+          
+        }).then(r => {
+          if(r.ok){
+            setIsClicked(!click)
+            console.log(r)
+
+          }else{
+            // need error handling here
+          }
+        }).then(navigate("/myarticles"))
+
+      }
 
       
 
@@ -33,25 +57,9 @@ const MyArticle = ({user}) => {
           <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2 ml-0.5" href={art.story.url}>#{art.story.source}</a>
           <h3 className="font-heading text-3xl sm:text-4xl mb-8">{art.story.title}</h3>
           <div className="flex items-center">
-            <img className="w-8 h-8 rounded-full mr-3" src="acros-assets/images/blog-content/man-32x32.png" alt=""/>
-            <a className="text-sm leading-6 font-medium hover:underline" href="#">{art.story.author}</a>
-            <div className="w-px h-8 mx-4 sm:mx-8 bg-gray-200"></div>
-            <div className="flex items-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.09277 9.40421H20.9167" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M16.4422 13.3097H16.4515" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M12.0045 13.3097H12.0137" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M7.55793 13.3097H7.5672" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M16.4422 17.1962H16.4515" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M12.0045 17.1962H12.0137" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M7.55793 17.1962H7.5672" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M16.0438 2V5.29078" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M7.9654 2V5.29078" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2383 3.5791H7.77096C4.83427 3.5791 3 5.21504 3 8.22213V17.2718C3 20.3261 4.83427 21.9999 7.77096 21.9999H16.229C19.175 21.9999 21 20.3545 21 17.3474V8.22213C21.0092 5.21504 19.1842 3.5791 16.2383 3.5791Z" stroke="#2B3031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-              <a className="ml-2 text-sm leading-6 font-medium hover:underline" href="#">{art.user} Write Your Take</a>
-            </div>
+            <a className="text-sm leading-6 font-medium hover:underline" href="#">Author: {art.story.author}</a>
           </div>
+            <a class="inline-block py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 rounded-sm transition duration-200" onClick={()=>removeArticle(art.story.id)}>Remove</a>
         </div>
       </div>
       <div className="w-full lg:w-1/2 px-4">
@@ -91,8 +99,6 @@ const MyArticle = ({user}) => {
             {displayMyArticles.map((arts)=><SwiperSlide>{arts}</SwiperSlide>)}
             </SwiperComponent>
             <TipTap />
-            <div className="w-5/6">
-            </div>
         </>
      );
 }
