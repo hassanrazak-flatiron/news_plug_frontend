@@ -2,7 +2,7 @@ import {useState} from 'react'
 import Result from './Result'
 
 
-const SearchResult = ({stories, user,source}) => {
+const SearchResult = ({stories, user,source, search}) => {
 
 
 // const[selectedArticles,setSelectedArticles] = useState([])
@@ -30,11 +30,19 @@ const createArticle = (id) => {
 }
 
 const filteredStories = stories.filter(s =>{
-  console.log(s)
   if(source === "All") return true
   return(s.source == source)
 })
 
+
+const searchStories = filteredStories.filter(s =>{
+// console.log(s.description)
+    if(search === '') return false
+    
+    return (s.description.toLowerCase()).includes(search.toLowerCase())
+    
+
+})
 
     return ( 
         <>
@@ -44,7 +52,7 @@ const filteredStories = stories.filter(s =>{
         </div>
         <div className="grid grid-cols-2 gap-4">
 
-        {filteredStories.map(story => {
+        {searchStories.map(story => {
           return(
             <Result user={user} createArticle={createArticle} key={story.id} story={story}/>
           )

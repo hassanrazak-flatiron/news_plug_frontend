@@ -69,7 +69,7 @@ const SignUp = ({email,password,setEmail, setPassword}) => {
 
     return ( 
  <>
- <section className="relative"><div className="container px-4 mx-auto">
+ <section className="relative"><div className="container px-4 mx-auto mt-10">
   <div className="max-w-md mx-auto lg:mx-0 py-18">
     <div className="mb-6">
       <span className="text-sm font-semibold uppercase">
@@ -112,10 +112,10 @@ const SignUp = ({email,password,setEmail, setPassword}) => {
   </div>
   <div className="relative lg:absolute top-0 right-0 lg:w-1/2 h-112 lg:h-full">
     <img className="absolute top-0 left-0 w-full h-full object-cover" src={signup} alt=""/><div className="absolute bottom-0 left-0 p-8 lg:p-20">
-    <h3 className="max-w-sm font-heading text-3xl sm:text-4xl text-white mb-4" contenteditable="false">Read | Explain | Source | Talk</h3>
     <p className="max-w-md text-lg leading-8 text-white" contenteditable="false">Save articles as collections, summarize into your own words, edit/delete as your understanding  grows</p>
     </div>
   </div>
+    <h3 className="max-w-sm font-heading text-3xl sm:text-4xl text-white mb-4" contenteditable="false">Read | Explain | Source | Talk</h3>
 </section>
  </>
      );

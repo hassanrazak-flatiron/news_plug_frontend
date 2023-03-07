@@ -16,7 +16,7 @@ const Home = ({headlines, user, stories, setStories,handleSearch, search, setSea
         <NavBar />
         <SearchBar  source={source} setSource={setSource} handleSearch = {handleSearch} search={search} setSearch={setSearch}/>
         <TopHeadlinesSwiper headlines={headlines}/>
-        <SearchResult source={source} user={user} stories={stories} setStories={setStories}/>
+        <SearchResult search={search} source={source} user={user} stories={stories} setStories={setStories}/>
         <Footer />
 
         </>

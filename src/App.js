@@ -19,23 +19,25 @@ function App() {
   const[search,setSearch] = useState('')
   const[source,setSource] = useState("All")
  
-  const handleSearch = (e) =>{
-    e.preventDefault()
-    console.log("i was clicked")
-
-    if({search} == ''){
-      // e.preventDefault()
+  // const handleSearch = (e) =>{
+  //   e.preventDefault()
+  // fetch(`/search_stories/${search}`)
+  //       .then(r => r.json())
+  //       .then(r => setStories(r))
+  //       console.log(stories)
         
-    }else{
+    
+  //   }
 
-        // e.preventDefault()
-        fetch(`/search_stories/${search}`)
-        .then(r => r.json())
-        .then(r => setStories(r))
-        console.log(stories)
-        
-    }
-    }
+  useEffect(() => {
+    // stories
+    fetch("/stories")
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((r) => setStories(r));
+      }
+    });
+  }, []);
 
   const navigate = useNavigate()
 
@@ -68,7 +70,7 @@ function App() {
           <Landing
           source={source}
           setSource={setSource} 
-          handleSearch = {handleSearch}
+          // handleSearch = {handleSearch}
           search={search} 
           setSearch = {setSearch}
           stories={stories} 
@@ -82,7 +84,7 @@ function App() {
           <Home
           source={source}
           setSource={setSource}  
-          handleSearch = {handleSearch}
+          // handleSearch = {handleSearch}
           search={search} 
           setSearch = {setSearch}
           stories={stories} 

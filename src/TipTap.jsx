@@ -27,7 +27,7 @@ const navigate=useNavigate()
     e.preventDefault()
 
     const content = editor.getHTML()
-    console.log(articleId)
+    // console.log(articleId)
    fetch('/hot_takes', {
         method: "POST",
         headers: {
@@ -42,13 +42,16 @@ const navigate=useNavigate()
         }),
   
         })
-        // .then(resp => resp.json())
-        // if (resp.ok) {
-        //     console.log(resp)
-        //     navigate('/home')
-        // } else {
-        //     console.log("POST CREATION FAILED")
-        // }
+        // ./then(resp => {
+
+        //   resp.json()
+        //   if(resp.ok) {
+        //       console.log(resp)
+        //       navigate('/hottakes')
+        //   } else {
+        //       console.log("POST CREATION FAILED")
+        //   }
+        // })
       }
 
   return (
@@ -77,6 +80,16 @@ const navigate=useNavigate()
             name='tags' 
             placeholder='Enter tags...' 
             value={tags}
+            onChange={(e)=>setTags(e.target.value)}
+            
+            /><br />
+            </div>
+            <div className='flex w-full bg-slate item-center'>
+            <input  className="w-4/5 p-3 border-chateau bg-slate text-left text-4xl font-bold placeholder:font-bold placeholder:text-4xl"
+            type="text"
+            name='article_id' 
+            placeholder='Enter Article Id' 
+            value={articleId}
             onChange={(e)=>setTags(e.target.value)}
             
             /><br />

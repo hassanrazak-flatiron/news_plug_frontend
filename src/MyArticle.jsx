@@ -78,8 +78,8 @@ const MyArticle = ({user}) => {
       
       
     </div>
-    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200" onClick={()=>removeArticle(art.story.id)}>Remove</a>
-    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200" onClick={(e)=>setArticleId(art.story.id)}>Add Summary</a>
+    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 " onClick={()=>removeArticle(art.story.id)}>Remove</a>
+    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 ml-2" onClick={(e)=>setArticleId(art.story.id)}>Add</a>
 </section>
 
 
