@@ -1,11 +1,15 @@
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import './assets/signup.jpg'
 
 const SignUp = ({email,password,setEmail, setPassword}) => {
 
     const [firstName,setFirstName] = useState('')
     const [lastName,setLastName] = useState('')
     const [passwordConfirmation,setPasswordConfirmation] = useState('')
+
+
+    const signup = require('./assets/signup.jpg');
 
     const navigate = useNavigate()
 
@@ -107,7 +111,7 @@ const SignUp = ({email,password,setEmail, setPassword}) => {
   </div>
   </div>
   <div className="relative lg:absolute top-0 right-0 lg:w-1/2 h-112 lg:h-full">
-    <img className="absolute top-0 left-0 w-full h-full object-cover" src="acros-assets/images/forms/work.jpg" alt=""/><div className="absolute bottom-0 left-0 p-8 lg:p-20">
+    <img className="absolute top-0 left-0 w-full h-full object-cover" src={signup} alt=""/><div className="absolute bottom-0 left-0 p-8 lg:p-20">
     <h3 className="max-w-sm font-heading text-3xl sm:text-4xl text-white mb-4" contenteditable="false">Read | Explain | Source | Talk</h3>
     <p className="max-w-md text-lg leading-8 text-white" contenteditable="false">Save articles as collections, summarize into your own words, edit/delete as your understanding  grows</p>
     </div>

@@ -7,12 +7,15 @@ import {useNavigate} from 'react-router-dom'
 import 'swiper/swiper-bundle.min.css';
 import TipTap from "./TipTap";
 
+import Footer from "./Footer";
+
 
 
 const MyArticle = ({user}) => {
 
     const[myArticles, setMyArticles] = useState([])
     const[click,setIsClicked]=useState(false)
+    const[articleId, setArticleId] = useState(0)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -45,11 +48,15 @@ const MyArticle = ({user}) => {
 
       }
 
+
+
       
 
       const displayMyArticles = myArticles.map((art) => {
         return(
-    <section  key={art.story.id}>
+          
+    <section className="section flex-wrap items-center mx-auto mt-3 mb-3 w-3/6" key={art.story.id}>
+       
 
     <div className="flex flex-wrap items-center -mx-4">
       <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
@@ -59,7 +66,7 @@ const MyArticle = ({user}) => {
           <div className="flex items-center">
             <a className="text-sm leading-6 font-medium hover:underline" href="#">Author: {art.story.author}</a>
           </div>
-            <a class="inline-block py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 rounded-sm transition duration-200" onClick={()=>removeArticle(art.story.id)}>Remove</a>
+           
         </div>
       </div>
       <div className="w-full lg:w-1/2 px-4">
@@ -71,7 +78,10 @@ const MyArticle = ({user}) => {
       
       
     </div>
+    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200" onClick={()=>removeArticle(art.story.id)}>Remove</a>
+    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200" onClick={(e)=>setArticleId(art.story.id)}>Add Summary</a>
 </section>
+
 
 )})
       
@@ -79,13 +89,8 @@ const MyArticle = ({user}) => {
     
         <>
         <NavBar />
-        {user ? 
-      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">{user?.first_name}'s Articles</h2>
-      :
-      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">My Articles</h2>
-      }
-
             <SwiperComponent
+            className="slide flex-wrap items-center mx-auto mt-3 mb-3 w-8/12"
             modules={ [Navigation, Pagination, Scrollbar, A11y] }
             spaceBetween={50}
             slidesPerView={1}
@@ -96,9 +101,10 @@ const MyArticle = ({user}) => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
             > 
-            {displayMyArticles.map((arts)=><SwiperSlide>{arts}</SwiperSlide>)}
+            {displayMyArticles.map((arts)=><SwiperSlide >{arts}</SwiperSlide>)}
             </SwiperComponent>
-            <TipTap />
+            <TipTap articleId={articleId}/>
+            <Footer />
         </>
      );
 }

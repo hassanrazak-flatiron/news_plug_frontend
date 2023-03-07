@@ -6,17 +6,17 @@ import Footer from "./Footer";
 import {useState} from 'react'
 
 
-const Home = ({headlines, user}) => {
+const Home = ({headlines, user, stories, setStories,handleSearch, search, setSearch, source, setSource}) => {
 
-    const[stories,setStories] = useState([])
+    
 
 
     return (    
         <>
         <NavBar />
-        <SearchBar  stories={stories} setStories={setStories}/>
+        <SearchBar  source={source} setSource={setSource} handleSearch = {handleSearch} search={search} setSearch={setSearch}/>
         <TopHeadlinesSwiper headlines={headlines}/>
-        <SearchResult user={user} stories={stories} setStories={setStories}/>
+        <SearchResult source={source} user={user} stories={stories} setStories={setStories}/>
         <Footer />
 
         </>

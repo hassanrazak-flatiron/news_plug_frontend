@@ -24,7 +24,7 @@ const NavBar = () => {
     return ( 
         <>
 <section>
-  <nav className="py-4 bg-white">
+  <nav className="py-4 bg-slate-500">
     <div className="container px-4 mx-auto">
       <div className="relative flex items-center justify-between">
         <div className="w-auto">

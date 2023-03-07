@@ -1,5 +1,5 @@
 import {Swiper as SwiperComponent,SwiperSlide} from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 
 import 'swiper/swiper-bundle.min.css';
 
@@ -10,41 +10,29 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
     const slides = headlines.map((hl)=>{
 
         return(
-            <section key={hl.id}>
-            <div className="container px-4 mx-auto w-3/4">
-              <div className="flex flex-wrap items-center -mx-4 mb-12">
-                <div className="w-full xl:w-2/3 px-4 mb-8 xl:mb-0">
-                  <div className="text-sm mb-2 font-semibold text-gray-900 uppercase">
-          
-          
-                  </div>
-                  <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">{hl.description}</h2>
-                </div>
-          
+          <section className="py-16 bg-gray-50 mt-10 mb-0">
+          <div className="container px-4 mx-auto">
+            <div className="flex flex-wrap items-center -mx-4">
+              <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
+                <img className="block w-full max-w-xl mx-auto rounded" src={hl.img_url} alt=""/>
               </div>
-              <div className="flex flex-wrap -mx-4">
-                <div className="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-                  <div className="relative flex items-end h-full pt-24 overflow-hidden rounded-md">
-                    <img className="absolute top-0 left-0 h-full w-full object-cover" src={hl.img_url} alt=""/>
-                    <div className="relative max-w-lg p-6 sm:p-8">
-                      <div className="mb-2"><a className="inline-block font-heading text-white hover:text-gray-100 mr-4" href="#" contenteditable="false">#{hl.source}</a></div>
-                      <h3 className="font-heading text-3xl text-white mb-4" contenteditable="false">{hl.title}</h3>
-          
-                      <a className="group inline-flex items-center font-heading font-medium text-white" href="#">
-                        <span className="mr-4">Read more</span>
-                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-400 bg-opacity-70 group-hover:bg-opacity-100">
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
-                        </div>
-                      </a>
+              <div className="w-full lg:w-1/2 px-4">
+                <div className="max-w-xl mx-auto">
+        
+                  <h3 className="font-heading text-2xl md:text-3xl mt-2 mb-6">{hl.title}</h3>
+                  <p className="max-w-md text-lg leading-8 mb-10">{hl.description}</p>
+                  <div className="flex items-center">
+        
+                    <div>
+                      <h4 className="font-heading font-medium mb-1">{hl.author}</h4>
+                      <span className="text-gray-300">{hl.source}</span>
                     </div>
                   </div>
                 </div>
-          
               </div>
             </div>
-          </section>
+          </div>
+        </section>
         )
     })
         
@@ -53,18 +41,16 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
        
         return ( 
             <>
-              {user ? 
-      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">{user?.first_name}'s HEADLINES</h2>
-      :
-      <h2 className="max-w-xl font-heading text-3xl sm:text-4xl" contenteditable="false">HEADLINES</h2>
-      }
-            <SwiperComponent className='w-3/4'
-            modules={ [Navigation, Pagination, Scrollbar, A11y] }
+            <SwiperComponent
+            className="slide flex-wrap items-center mx-auto my-auto w-11/12 h-1/3"
+            modules={ [Navigation, Pagination, Scrollbar, A11y, Autoplay] }
             spaceBetween={50}
-            slidesPerView={2}
-            navigation
+            slidesPerView={1}
+            // navigation
+            autoplay={{delay:5000}}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
+            
 
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}

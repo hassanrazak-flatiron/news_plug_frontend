@@ -15,8 +15,28 @@ function App() {
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const [headlines, setHeadLines] = useState([]);
+  const[stories,setStories] = useState([])
+  const[search,setSearch] = useState('')
+  const[source,setSource] = useState("All")
  
-  
+  const handleSearch = (e) =>{
+    e.preventDefault()
+    console.log("i was clicked")
+
+    if({search} == ''){
+      // e.preventDefault()
+        
+    }else{
+
+        // e.preventDefault()
+        fetch(`/search_stories/${search}`)
+        .then(r => r.json())
+        .then(r => setStories(r))
+        console.log(stories)
+        
+    }
+    }
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -43,8 +63,34 @@ function App() {
   return (
  <>
         <Routes>
-          <Route path="/" element={<Landing headlines = {headlines} />} />
-          <Route path="/home" element={<Home user={user} headlines = {headlines} />} />
+          <Route path="/"
+          element={
+          <Landing
+          source={source}
+          setSource={setSource} 
+          handleSearch = {handleSearch}
+          search={search} 
+          setSearch = {setSearch}
+          stories={stories} 
+          setStories={setStories} 
+          user={user} 
+          headlines = {headlines} 
+          />} 
+          />
+          <Route path="/home" 
+          element={
+          <Home
+          source={source}
+          setSource={setSource}  
+          handleSearch = {handleSearch}
+          search={search} 
+          setSearch = {setSearch}
+          stories={stories} 
+          setStories={setStories} 
+          user={user} 
+          headlines = {headlines} 
+          />} 
+          />
           <Route path="/signup" element={<SignUp email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/login" element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/myarticles" element={<MyArticle user={user}/>} />

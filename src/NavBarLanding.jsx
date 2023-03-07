@@ -4,7 +4,7 @@ const NavBarLanding = () => {
 
   <>
   <section>
-  <nav className="px-4 sm:px-10 py-4 bg-white">
+  <nav className="px-4 sm:px-10 py-4 bg-slate-500">
     <div className="flex items-center justify-between">
       <div className="w-auto">
         <div className="flex flex-wrap items-center">
