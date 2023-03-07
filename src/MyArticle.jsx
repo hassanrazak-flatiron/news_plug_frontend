@@ -55,7 +55,7 @@ const MyArticle = ({user}) => {
       const displayMyArticles = myArticles.map((art) => {
         return(
           
-    <section className="section flex-wrap items-center mx-auto mt-3 mb-3 w-3/6" key={art.story.id}>
+    <section className="section flex-wrap items-center mx-auto mt-3 mb-3 w-3/6" key={art.story.id} id={art.id}>
        
 
     <div className="flex flex-wrap items-center -mx-4">
@@ -64,7 +64,7 @@ const MyArticle = ({user}) => {
           <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2 ml-0.5" href={art.story.url}>#{art.story.source}</a>
           <h3 className="font-heading text-3xl sm:text-4xl mb-8">{art.story.title}</h3>
           <div className="flex items-center">
-            <a className="text-sm leading-6 font-medium hover:underline" href="#">Author: {art.story.author}</a>
+            <a className="text-sm leading-6 font-medium hover:underline" href={art.story.url}>Author: {art.story.author}</a>
           </div>
            
         </div>
@@ -79,7 +79,7 @@ const MyArticle = ({user}) => {
       
     </div>
     <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 " onClick={()=>removeArticle(art.story.id)}>Remove</a>
-    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 ml-2" onClick={(e)=>setArticleId(art.story.id)}>Add</a>
+    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 ml-2" onClick={(e)=>setArticleId(art.id)}>Add</a>
 </section>
 
 
