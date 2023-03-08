@@ -55,32 +55,29 @@ const MyArticle = ({user}) => {
       const displayMyArticles = myArticles.map((art) => {
         return(
           
-    <section className="section flex-wrap items-center mx-auto mt-3 mb-3 w-3/6" key={art.story.id} id={art.id}>
-       
-
-    <div className="flex flex-wrap items-center -mx-4">
-      <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
-        <div className="max-w-lg xl:max-w-md">
-          <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2 ml-0.5" href={art.story.url}>#{art.story.source}</a>
-          <h3 className="font-heading text-3xl sm:text-4xl mb-8">{art.story.title}</h3>
-          <div className="flex items-center">
-            <a className="text-sm leading-6 font-medium hover:underline" href={art.story.url}>Author:{art.story.author}</a>
+          <section className="pb-14">
+          <div className="container px-4 mx-auto">
+            <div className="max-w-3xl mx-auto mb-12">
+              <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2" href={art.story.url}>#{art.story.source}</a>
+              <h3 className="font-heading text-3xl sm:text-4xl mb-8">{art.story.title}</h3>
+              <div className="flex items-center">
+                <img className="w-8 h-8 rounded-full mr-3" src={art.story.img_url} alt=""/>
+                <a className="text-sm leading-6 font-medium hover:underline" href="#">{art.story.author}</a>
+                <div className="w-px h-8 mx-4 sm:mx-8 bg-gray-200"></div>
+                <div className="flex items-center">
+                  <a className="ml-2 text-sm leading-6 font-medium hover:underline" href="#">Denny Bailey</a>
+                </div>
+              </div>
+            </div>
+            <img className="block w-full h-112 rounded-md object-cover" src={art.story.img_url} alt=""/>
+            <div className="max-w-3xl mx-auto pt-12">
+              <p className="text-lg leading-8 mb-6">{art.story.description}</p>
+            </div>
           </div>
-           
-        </div>
-      </div>
-      <div className="w-full lg:w-1/2 px-4">
-        <img className="block w-full rounded-md" src={art.story.img_url} alt=""/>
-      </div>
-    </div>
-    <div className="max-w-3xl mx-auto pt-14">
-      <p className="text-lg leading-8 mb-6">{art.story.description}</p>
-      
-      
-    </div>
-    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 " onClick={()=>removeArticle(art.story.id)}>Remove</a>
-    <a class="inline-block py-4 px-1 text-center font-heading font-medium text-base text-white bg-slate-500 hover:bg-green-600 rounded-sm transition duration-200 ml-2" onClick={(e)=>setArticleId(art.id)}>Add</a>
-</section>
+    <button className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-red-500 hover:bg-red-600 border border-red-500 hover:border-red-600 rounded-sm transition duration-200 mb-4 ml-3" onClick={()=>removeArticle(art.story.id)}>Remove</button>
+    <button className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200 mb-4 ml-3" onClick={(e)=>setArticleId(art.id)}>Add</button>
+        </section>
+
 
 
 )})
@@ -89,21 +86,30 @@ const MyArticle = ({user}) => {
     
         <>
         <NavBar />
-            <SwiperComponent
-            className="slide flex-wrap items-center mx-auto mt-3 mb-3 w-8/12"
-            modules={ [Navigation, Pagination, Scrollbar, A11y] }
-            spaceBetween={50}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
+        <div className="flex flex-wrap -mx-4  md:mb-0 my-5">
+              <div className="w-full md:w-1/2 px-4 mb-4">
+                              <SwiperComponent
+                              className="slide flex-wrap items-center w-full"
+                              modules={ [Navigation, Pagination, Scrollbar, A11y] }
+                              spaceBetween={50}
+                              slidesPerView={1}
+                              navigation
+                              pagination={{ clickable: true }}
+                              scrollbar={{ draggable: true }}
 
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
-            > 
-            {displayMyArticles.map((arts)=><SwiperSlide >{arts}</SwiperSlide>)}
-            </SwiperComponent>
-            <TipTap articleId={articleId}/>
+                              onSlideChange={() => console.log('slide change')}
+                              onSwiper={(swiper) => console.log(swiper)}
+                              > 
+                              {displayMyArticles.map((arts)=><SwiperSlide >{arts}</SwiperSlide>)}
+                              </SwiperComponent>
+              </div>
+
+              <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0 border-l-2 border-black">
+                <TipTap articleId={articleId}/>
+                
+              </div>
+        </div>
+           
             <Footer />
         </>
      );

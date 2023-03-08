@@ -57,7 +57,7 @@ const navigate=useNavigate()
   return (
   <>
 
-<div className='rounded-lg p-10 h-full w-full'>
+<div className='rounded-lg p-10 h-max w-full '>
             <div className='bg-slate text-dianne px-10 py-2 grid gap-2 grid-cols-12 justify-between items-center text-center'>
                 <ToolBar editor={editor} />
                 {/* <button className="toolbar" onClick={addImage}><FaImage /></button> */}
@@ -65,7 +65,7 @@ const navigate=useNavigate()
             </div>
             <hr />
             <div className='flex w-full bg-slate item-center'>
-            <input  className="w-4/5 p-3 border-chateau bg-slate text-left text-4xl font-bold placeholder:font-bold placeholder:text-4xl"
+            <input  className="w-full p-3 border-chateau bg-slate text-left text-xl font-bold placeholder:font-bold placeholder:text-xl"
             type="text"
             name='title' 
             placeholder='Enter a title...' 
@@ -75,7 +75,7 @@ const navigate=useNavigate()
             /><br />
             </div>
             <div className='flex w-full bg-slate item-center'>
-            <input  className="w-4/5 p-3 border-chateau bg-slate text-left text-4xl font-bold placeholder:font-bold placeholder:text-4xl"
+            <input  className="w-full p-3 border-chateau bg-slate text-left text-xl font-bold placeholder:font-bold placeholder:text-xl"
             type="text"
             name='tags' 
             placeholder='Enter tags...' 
@@ -85,7 +85,7 @@ const navigate=useNavigate()
             /><br />
             </div>
             <div className='flex w-full bg-slate item-center'>
-            <input  className="w-4/5 p-3 border-chateau bg-slate text-left text-4xl font-bold placeholder:font-bold placeholder:text-4xl"
+            <input  className="w-full p-3 border-chateau bg-slate text-left text-xl font-bold placeholder:font-bold placeholder:text-xl"
             type="text"
             name='article_id' 
             placeholder='Enter Article Id' 
@@ -95,15 +95,14 @@ const navigate=useNavigate()
             /><br />
             </div>
             <hr />
-            <div className='w-full h-3/5 flex bg-slate prose lg:prose-2xl p-5 max-w-none overflow-auto scrollbar-hide md:scrollbar-default'>
+            <div className="w-full p-3 border-chateau bg-slate text-left text-xl font-bold placeholder:font-bold placeholder:text-xl prose lg:prose-2xl max-w-none overflow-auto scrollbar-hide md:scrollbar-default ">
                 <EditorContent editor={editor} />
             </div>
             <hr />
 
             
             <div className='bg-chateau flex justify-center items-center space-x-3 p-3'>
-                <button className="bg-tamarillo text-slate rounded-lg p-3" onClick={saveToSummaries} >Submit</button>
-                          
+                <button className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200 mb-4 ml-3" onClick={saveToSummaries} >Submit</button>
             </div>
    
   </>
