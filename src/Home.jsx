@@ -13,9 +13,13 @@ const Home = ({headlines, user, stories, setStories,handleSearch, search, setSea
 
     return (    
         <>
-        <NavBar />
-        <SearchBar  source={source} setSource={setSource} handleSearch = {handleSearch} search={search} setSearch={setSearch}/>
+        <NavBar setSearch={setSearch}/>
         <TopHeadlinesSwiper headlines={headlines}/>
+        <div className="text-3xl mb-2 mt-6 font-semibold text-gray-900 uppercase ml-24 ">
+          <span>Browse </span>
+          <span className="text-green-500 ml-1">SEARCH RESULTS</span>
+        </div>
+        <SearchBar  source={source} setSource={setSource} handleSearch = {handleSearch} search={search} setSearch={setSearch}/>
         <SearchResult search={search} source={source} user={user} stories={stories} setStories={setStories}/>
         <Footer />
 

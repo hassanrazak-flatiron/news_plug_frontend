@@ -1,6 +1,6 @@
 import {Link,useNavigate} from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({setSearch}) => {
 
 
 
@@ -10,15 +10,17 @@ const NavBar = () => {
     const handleLogOut = () =>{
         fetch('/logout',{
             method: 'DELETE',
-        }).then(r =>{
-            if (r.ok) {
-                // r.json().then((user) =>setUser(user));
-                navigate('/')
-              } else {
-                // r.json().then((err) => setErrors(err.errors));
+        }).then(r =>setSearch("")
+          // {
+          //   if (r.ok) {
+          //       r.json().then((r) =>setSearch(""));
+          //     } else {
+          //       // r.json().then((err) => setErrors(err.errors));
                 
-              }
-            })
+          //     }
+          //   }
+            
+            ).then(navigate('/'))
 
     }
     return ( 
@@ -34,9 +36,9 @@ const NavBar = () => {
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">
           <ul className="flex items-center">
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/home'>Home</Link></a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#" ><Link to='/myarticles'>My Articles</Link></a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#"><Link to='/home'>Home</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#" ><Link to='/myarticles'>My Articles</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
             <li className="font-heading mr-12 text-gray-900"></li>
           </ul>
         </div>
@@ -59,9 +61,9 @@ const NavBar = () => {
           <img src="acros-assets/logo/logo-acros-black.svg" alt=""/>
         </a>
         <ul className="w-full mb-auto pb-16">
-        <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/home'>Home</Link></a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/myarticles'>My Articles</Link></a></li>
-            <li className="font-heading mr-12 text-gray-900"><a className="hover:text-black" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
+        <li className="font-heading mr-12 text-gray-900"><a className="text-3xl font-semibold text-gray-900 uppercase" href="#"><Link to='/home'>Home</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="text-3xl font-semibold text-gray-900 uppercase" href="#"><Link to='/myarticles'>My Articles</Link></a></li>
+            <li className="font-heading mr-12 text-gray-900"><a className="text-3xl font-semibold text-gray-900 uppercase" href="#"><Link to='/hottakes'>Hot Takes</Link></a></li>
             <li className="font-heading mr-12 text-gray-900"></li>
         </ul>
         <div className="w-full">

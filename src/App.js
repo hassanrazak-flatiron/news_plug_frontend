@@ -16,7 +16,7 @@ function App() {
   const [password,setPassword] = useState('')
   const [headlines, setHeadLines] = useState([]);
   const[stories,setStories] = useState([])
-  const[search,setSearch] = useState('')
+  const[search,setSearch] = useState("")
   const[source,setSource] = useState("All")
  
   // const handleSearch = (e) =>{
@@ -94,7 +94,7 @@ function App() {
           />} 
           />
           <Route path="/signup" element={<SignUp email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
-          <Route path="/login" element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
+          <Route path="/login" element={<Login setSearch={setSearch} email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/myarticles" element={<MyArticle user={user}/>} />
           <Route path="/hottakes" element={<HotTake />} />
           </Routes>

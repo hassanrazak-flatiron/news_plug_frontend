@@ -49,11 +49,8 @@ const searchStories = filteredStories.filter(s =>{
 
     return ( 
         <>
-         <div className="text-3xl mb-2 mt-4 font-semibold text-gray-900 uppercase">
-          <span>Browse </span>
-          <span className="text-green-500">SEARCH RESULTS</span>
-        </div>
-        <div className="grid grid-cols-3 gap-x-10 gap-y-8 m-32" >
+        
+        <div className="grid grid-cols-2 gap-x-10 gap-y-8 m-72 mt-2" >
         {searchStories.map(story => {
           return(
             <>

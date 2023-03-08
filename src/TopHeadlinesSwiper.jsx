@@ -41,19 +41,19 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
        
         return ( 
             <>
-              <div className="text-3xl font-semibold text-gray-900 uppercase">
+              <div className="text-3xl font-semibold text-gray-900 uppercase ml-24 mt-4">
                 <span>Top </span>
-                <span className="text-green-500">Headlines</span>
+                <span className="text-green-500 ml-1">Headlines</span>
               </div>
         
             <SwiperComponent
-            className="slide flex-wrap items-center m-auto w-1/2 h-fit"
+            className="slide flex-wrap items-center m-auto mt-4 w-1/2 h-fit"
             modules={ [Navigation, Pagination, Scrollbar, A11y, Autoplay] }
             spaceBetween={50}
             slidesPerView={1}
             // navigation
             autoplay={{delay:5000}}
-            pagination={{ clickable: true }}
+            // pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
             
 

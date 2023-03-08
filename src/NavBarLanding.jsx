@@ -23,7 +23,7 @@ const NavBarLanding = () => {
           </div>
         </div>
       </div>
-      <div className="w-auto hidden lg:flex items-center"><a className="inline-block mr-12 font-heading font-medium text-base text-green-900" href="#"><Link to='/login'>Log in</Link></a><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#"><Link to='/signup'>Sign up</Link></a></div>
+      <div className="w-auto hidden lg:flex items-center"><a className=" mr-3 inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#"><Link to='/login'>Log in</Link></a><a className="inline-block py-4 px-8 font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 border border-green-500 hover:border-green-600 rounded-sm transition duration-200" href="#"><Link to='/signup'>Sign up</Link></a></div>
       <div className="w-auto lg:hidden">
         <a className="navbar-burger inline-flex w-14 h-14 justify-center items-center bg-gray-50 hover:bg-gray-100 rounded-full" href="#">
           <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ const NavBarLanding = () => {
       </div>
     </div>
   </nav>
-  <div className="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
+  {/* <div className="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
     <div className="navbar-backdrop fixed inset-0 backdrop-blur-xl backdrop-filter bg-gray-900 bg-opacity-80"></div>
     <nav className="relative pt-7 pb-8 bg-white h-full overflow-y-auto">
       <div className="flex flex-col px-6 h-full">
@@ -54,7 +54,7 @@ const NavBarLanding = () => {
         </div>
       </div>
     </nav>
-  </div>
+  </div> */}
 </section>
   </>
         

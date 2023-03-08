@@ -11,11 +11,11 @@ const SearchBar = ({ search, setSearch, handleSearch, source, setSource}) => {
     return (    
       
 <>
-<div className="flex flex-wrap -mx-4 -mb-4 md:mb-0 justify-center">
+<div className="flex flex-wrap -mx-4  md:mb-0 justify-center mt-10">
   <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0"><div className="mb-6">
 
     <div className="relative">
-        <label className="text-green-500 text-xl font-semibold uppercase">Sources</label>
+        <label className="text-green-500 text-xl font-semibold uppercase ml-56">Sources</label>
       <select onChange={(e)=>setSource(e.target.value)} className="appearance-none block w-full p-4 font-heading text-gray-300 placeholder-gray-300 bg-gray-50 rounded outline-none" name="field-name">
         <option>All</option>
         <option>BBC</option>
@@ -32,11 +32,10 @@ const SearchBar = ({ search, setSearch, handleSearch, source, setSource}) => {
     </div>
     </div></div>
   <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0"><div className="mb-4">
-  <label className="text-green-500 text-xl font-semibold uppercase">Search Articles</label>
+  <label className="text-green-500 text-xl font-semibold uppercase ml-56">Search Articles</label>
     <input className="block w-full p-4 font-heading text-gray-300 placeholder-gray-300 bg-gray-50 rounded outline-none" value={search} onChange={(e)=>setSearch(e.target.value)} type="text" name="field-name" placeholder="SEARCH.."/>
     </div></div>
-  {/* <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0"><button className="inline-block py-4 px-6 text-center font-heading font-medium text-base text-white bg-green-500 hover:bg-green-600 rounded-sm transition duration-200"  type="submit">Submit</button></div>  */}
-  {/* onClick={handleSearch} */}
+
 </div>
 </>
      );
