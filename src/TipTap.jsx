@@ -14,7 +14,7 @@ const TipTap = ({articleId}) => {
     extensions: [
       StarterKit,
     ],
-    content: '<p>START TYPING</p>',
+    content: 'START TYPING',
   })
 
 const[title, setTitle] = useState('')

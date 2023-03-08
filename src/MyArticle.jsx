@@ -64,7 +64,7 @@ const MyArticle = ({user}) => {
           <a className="inline-block font-heading text-green-500 hover:text-green-600 mb-2 ml-0.5" href={art.story.url}>#{art.story.source}</a>
           <h3 className="font-heading text-3xl sm:text-4xl mb-8">{art.story.title}</h3>
           <div className="flex items-center">
-            <a className="text-sm leading-6 font-medium hover:underline" href={art.story.url}>Author: {art.story.author}</a>
+            <a className="text-sm leading-6 font-medium hover:underline" href={art.story.url}>Author:{art.story.author}</a>
           </div>
            
         </div>

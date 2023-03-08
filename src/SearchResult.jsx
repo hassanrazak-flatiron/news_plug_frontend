@@ -4,6 +4,8 @@ import Result from './Result'
 
 const SearchResult = ({stories, user,source, search}) => {
 
+  const[workflow,setWorkflow] = useState(null)
+
 
 // const[selectedArticles,setSelectedArticles] = useState([])
 
@@ -15,7 +17,8 @@ const createArticle = (id) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
         user_id: user?.id,
-        story_id:id
+        story_id:id,
+        workflow:workflow
     }),
 }).then(r =>{
     if (r.ok) {
@@ -50,11 +53,16 @@ const searchStories = filteredStories.filter(s =>{
           <span>Browse </span>
           <span className="text-green-500">SEARCH RESULTS</span>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-4 gap-5">
 
         {searchStories.map(story => {
           return(
-            <Result user={user} createArticle={createArticle} key={story.id} story={story}/>
+            <>
+            
+            <Result 
+            className="cube min-h-full"
+            user={user} createArticle={createArticle} key={story.id} story={story}/>
+            </>
           )
         })}
         </div>
