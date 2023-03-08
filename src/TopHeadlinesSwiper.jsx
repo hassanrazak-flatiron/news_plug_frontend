@@ -10,21 +10,21 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
     const slides = headlines.map((hl)=>{
 
         return(
-          <section className="py-16 bg-gray-50 mt-10 mb-0">
+          <section className="py-16 bg-gray-100  mb-0">
           <div className="container px-4 mx-auto">
             <div className="flex flex-wrap items-center -mx-4">
-              <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
+              <div className="w-full lg:w-1/2 px-4  ">
                 <img className="block w-full max-w-xl mx-auto rounded" src={hl.img_url} alt=""/>
               </div>
               <div className="w-full lg:w-1/2 px-4">
                 <div className="max-w-xl mx-auto">
         
-                  <h3 className="font-heading text-2xl md:text-3xl mt-2 mb-6">{hl.title}</h3>
-                  <p className="max-w-md text-lg leading-8 mb-10">{hl.description}</p>
+                  <h3 className="font-heading text-2xl md:text-3xl ">{hl.title}</h3>
+                  <p className="max-w-md text-lg leading-8">{hl.description}</p>
                   <div className="flex items-center">
         
                     <div>
-                      <h4 className="font-heading font-medium mb-1">{hl.author}</h4>
+                      <h4 className="font-heading font-medium">{hl.author}</h4>
                       <span className="text-gray-300">{hl.source}</span>
                     </div>
                   </div>
@@ -41,8 +41,13 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
        
         return ( 
             <>
+              <div className="text-3xl font-semibold text-gray-900 uppercase">
+                <span>Top </span>
+                <span className="text-green-500">Headlines</span>
+              </div>
+        
             <SwiperComponent
-            className="slide flex-wrap items-center mx-auto my-auto w-11/12 h-1/3"
+            className="slide flex-wrap items-center m-auto w-1/2 h-fit"
             modules={ [Navigation, Pagination, Scrollbar, A11y, Autoplay] }
             spaceBetween={50}
             slidesPerView={1}
@@ -55,7 +60,8 @@ const TopHeadlinesSwiper = ({headlines, user}) => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
             > 
-            {slides.map((slide)=><SwiperSlide key={slide.id}>{slide}</SwiperSlide>)}
+            
+            {slides.map((slide)=><SwiperSlide   key={slide.id}>{slide}</SwiperSlide>)}
             </SwiperComponent>
     
     

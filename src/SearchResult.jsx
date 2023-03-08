@@ -34,7 +34,7 @@ const createArticle = (id) => {
 
 const filteredStories = stories.filter(s =>{
   if(source === "All") return true
-  return(s.source == source)
+  return(s.source.toLowerCase().includes(source.toLowerCase()))
 })
 
 
@@ -49,7 +49,7 @@ const searchStories = filteredStories.filter(s =>{
 
     return ( 
         <>
-         <div className="text-sm mb-2 font-semibold text-gray-900 uppercase">
+         <div className="text-3xl mb-2 mt-4 font-semibold text-gray-900 uppercase">
           <span>Browse </span>
           <span className="text-green-500">SEARCH RESULTS</span>
         </div>
