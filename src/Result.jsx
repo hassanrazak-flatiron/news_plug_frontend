@@ -57,9 +57,9 @@ const Result = ({createArticle, story, user}) => {
         <>
 
 
-
+{/* <h3 className="font-heading font-medium text-lg mb-10 w-full">{story.title}</h3> */}
 <SwiperComponent
-            className="slide flex-wrap items-center mx-auto my-auto w-11/12 h-1/3"
+            className="slide flex-wrap items-center w-full h-full mb-4"
             modules={ [Navigation, Pagination, Scrollbar,A11y, EffectCube] }
             spaceBetween={50}
             slidesPerView={1}
@@ -73,22 +73,27 @@ const Result = ({createArticle, story, user}) => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
             > 
-                    <SwiperSlide > 
+                    <SwiperSlide className="leading-7 bg-slate-500" > 
+
+                      <p className="font-heading font-medium text-3xl w-full text-white text-center"><a className="group inline-flex items-center font-heading font-medium text-white" href={story.url}>{story.source}</a></p>
+                    <img className="w-full h-6/12 p-3 mb-4 justify-center border-white border" src={story.img_url} alt=""/>
+                    </SwiperSlide>
                         
-                    <h3 className="font-heading font-medium text-lg mb-10 w-full">{story.title}</h3>
-                        <img className="w-40 min-h-full rounded mb-6 sm:mb-0 ml-9/12" src={story.img_url} alt=""/></SwiperSlide>
                     
-                    <SwiperSlide className="leading-7 mb-1" >
-                    <h3 className="font-heading font-medium text-lg mb-10 w-full">{story.title}</h3>
-                      <p className="leading-7 mb-1"><a className="group inline-flex items-center font-heading font-medium" href={story.url}>{story.source}</a></p></SwiperSlide>
-                    <SwiperSlide >
-                    <h3 className="font-heading font-medium text-lg mb-10 w-full">{story.title}</h3>
-                        <p className="leading-7 mb-4">{story.description}</p></SwiperSlide>
-                    <SwiperSlide >
+                    <SwiperSlide className="leading-7 mb-1 bg-slate-500" >
+                    <h3 className="font-heading font-medium text-3xl w-full text-white text-center mt-20 border-white border">{story.title}</h3>
+                      </SwiperSlide>
+                 
+                    <SwiperSlide className="leading-7 bg-slate-500">
+                        <p className="leading-7 m-auto bg-slate-500 text-white p-8 border-white border">{story.description}</p></SwiperSlide>
+                  
+
+                    <SwiperSlide className="leading-7  bg-slate-500 text-white">
+
                     { user ? 
-                  <span className="mr-4" onClick={() => createArticle(story.id)}>Add to Articles</span>
+                  <p className="leading-7 w-full font-medium text-3xl text-white mt-20 pl-20 border-white border" onClick={() => createArticle(story.id)}>Add to Articles</p>
                   :
-                  <a className="group inline-flex items-center font-heading font-medium" href={story.url}>Read More </a>
+                  <a className="leading-7 w-full font-medium text-3xl text-white mt-20 pl-20 border-white border" href={story.url}>Read More </a>
   
   
                 }    

@@ -53,14 +53,14 @@ const searchStories = filteredStories.filter(s =>{
           <span>Browse </span>
           <span className="text-green-500">SEARCH RESULTS</span>
         </div>
-        <div className="grid grid-cols-4 gap-5">
-
+        <div className="grid grid-cols-3 gap-x-10 gap-y-8 m-32" >
         {searchStories.map(story => {
           return(
             <>
             
+            
             <Result 
-            className="cube min-h-full"
+          
             user={user} createArticle={createArticle} key={story.id} story={story}/>
             </>
           )
