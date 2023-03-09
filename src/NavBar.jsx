@@ -1,6 +1,6 @@
 import {Link,useNavigate} from 'react-router-dom'
 
-const NavBar = ({setSearch}) => {
+const NavBar = ({setSearch,setUser}) => {
 
 
 
@@ -20,7 +20,9 @@ const NavBar = ({setSearch}) => {
           //     }
           //   }
             
-            ).then(navigate('/'))
+            )
+            .then(setUser(null))
+            .then(navigate('/'))
 
     }
     return ( 
@@ -31,7 +33,9 @@ const NavBar = ({setSearch}) => {
       <div className="relative flex items-center justify-between">
         <div className="w-auto">
           <a className="inline-block" href="#">
+          <Link to='/home'>
             <img src="https://static.shuffle.dev/uploads/files/29/29a86e1adc9554a2ad363814e79d813dcb63f444/NEWPLUG-MINI-webp-1677355977101.webp" alt=""/>
+            </Link>
           </a>
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">

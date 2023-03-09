@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Login = ({email, password, setEmail, setPassword, setSearch, setSource}) => {
+const Login = ({email, password, setEmail, setPassword, setSearch, setSource, setUser}) => {
 
     const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ const Login = ({email, password, setEmail, setPassword, setSearch, setSource}) =
         }).then(r =>
           {
             if (r.ok) {
-                r.json().then((r) =>navigate("/home"));
+                r.json().then((r) => setUser(r));
                 // navigate('/home')
               } else {
                 // r.json().then((err) => setErrors(err.errors));
@@ -24,7 +24,7 @@ const Login = ({email, password, setEmail, setPassword, setSearch, setSource}) =
               }
             }
             )
-            .then(setSearch(""));
+            .then(navigate("/home")).then(setSearch(""));
     }
 
 

@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './assets/signup.jpg'
 
-const SignUp = ({email,password,setEmail, setPassword}) => {
+const SignUp = ({email,password,setEmail, setPassword, setUser}) => {
 
     const [firstName,setFirstName] = useState('')
     const [lastName,setLastName] = useState('')
@@ -32,12 +32,12 @@ const SignUp = ({email,password,setEmail, setPassword}) => {
             }).then(r =>{
                 if (r.ok) {
                     // r.json().then((user) =>setUser(user));
-                    navigate('/home')
+                    r.json().then((r) => setUser(r));
                   } else {
                     // r.json().then((err) => setErrors(err.errors));
                     
                   }
-                });
+                }).then(navigate('/home'))
 
                 }
     

@@ -3,13 +3,13 @@ import SearchBar from "./SearchBar";
 import {useEffect, useState} from 'react'
 import Take
  from "./Take";
-const HotTake = ({search, source, setSource, setSearch}) => {
+const HotTake = ({search, source, setSource, setSearch,user}) => {
 
     const [hottake,setHottakes] = useState([])
 
     useEffect(() => {
         // Hot Takes
-        fetch("/hot_takes")
+        fetch(`/hot_takes`)
         .then((r) => {
           if (r.ok) {
             r.json().then((r) => setHottakes(r));
@@ -17,7 +17,7 @@ const HotTake = ({search, source, setSource, setSearch}) => {
         });
       }, []);
 
-  
+  console.log(hottake)
       const filteredTakes = hottake.filter(take =>{
         if(source === "All") return true
         return(take.my_article.story.source.toLowerCase().includes(source.toLowerCase()))

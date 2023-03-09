@@ -45,10 +45,10 @@ function App() {
     // auto-login
     fetch("/me")
     .then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
+
+      r.json().then((user) => setUser(user));
+    })
+    
   }, []);
 
 
@@ -89,14 +89,15 @@ function App() {
           setSearch = {setSearch}
           stories={stories} 
           setStories={setStories} 
-          user={user} 
+          user={user}
+          setUser={setUser} 
           headlines = {headlines} 
           />} 
           />
-          <Route path="/signup" element={<SignUp email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
-          <Route path="/login" element={<Login setSearch={setSearch} email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
+          <Route path="/signup" element={<SignUp setUser={setUser} email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
+          <Route path="/login" element={<Login setSearch={setSearch} email={email} password={password} setEmail={setEmail} setPassword={setPassword} setUser={setUser}/>} />
           <Route path="/myarticles" element={<MyArticle user={user}/>} />
-          <Route path="/hottakes" element={<HotTake search={search} source={source} setSource={setSource} setSearch={setSearch} />} />
+          <Route path="/hottakes" element={<HotTake user ={user} search={search} source={source} setSource={setSource} setSearch={setSearch} />} />
           </Routes>
           
 

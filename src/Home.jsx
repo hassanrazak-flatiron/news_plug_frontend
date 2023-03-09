@@ -6,14 +6,14 @@ import Footer from "./Footer";
 import {useState} from 'react'
 
 
-const Home = ({headlines, user, stories, setStories,handleSearch, search, setSearch, source, setSource}) => {
+const Home = ({headlines, user, stories, setStories,handleSearch, search, setSearch, source, setSource, setUser}) => {
 
     
 
 
     return (    
         <>
-        <NavBar setSearch={setSearch}/>
+        <NavBar setSearch={setSearch} setUser={setUser}/>
         <TopHeadlinesSwiper headlines={headlines}/>
         <div className="text-3xl mb-2 mt-6 font-semibold text-gray-900 uppercase ml-24 ">
           <span>Browse </span>
