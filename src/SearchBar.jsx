@@ -18,11 +18,12 @@ const SearchBar = ({ search, setSearch, handleSearch, source, setSource}) => {
         <label className="text-green-500 text-xl font-semibold uppercase ml-56">Sources</label>
       <select onChange={(e)=>setSource(e.target.value)} className="appearance-none block w-full p-4 font-heading text-gray-300 placeholder-gray-300 bg-gray-50 rounded outline-none" name="field-name">
         <option>All</option>
-        <option>BBC</option>
+        <option>Common Dreams</option>
         <option>CNN</option>
-        <option>NBC</option>
+        <option>ALTERNET</option>
         <option>CBS</option>
         <option>NPR</option>
+        <option>POLITICO</option>
       </select>
       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

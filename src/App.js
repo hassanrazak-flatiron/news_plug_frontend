@@ -96,7 +96,7 @@ function App() {
           <Route path="/signup" element={<SignUp email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/login" element={<Login setSearch={setSearch} email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>} />
           <Route path="/myarticles" element={<MyArticle user={user}/>} />
-          <Route path="/hottakes" element={<HotTake />} />
+          <Route path="/hottakes" element={<HotTake search={search} source={source} setSource={setSource} setSearch={setSearch} />} />
           </Routes>
           
 

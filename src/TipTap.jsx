@@ -41,7 +41,7 @@ const navigate=useNavigate()
        
         }),
   
-        })
+        }).then(navigate('/hottakes'))
         // ./then(resp => {
 
         //   resp.json()
